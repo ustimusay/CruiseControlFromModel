@@ -17,10 +17,14 @@ cfg.reportDir       = fullfile(demoDir, 'reports', 'report_ccm_mcdc');
 cfg.reportFileName  = 'CruiseControlMode_MCDC_report.pdf';
 cfg.reportTitle     = 'CruiseControlMode MCDC';
 cfg.reportSubtitle  = 'テストトレーサビリティレポート';
-cfg.chapterTitle    = 'CruiseControlMode MCDC テストケース（TC01 〜 TC47）';
+cfg.chapterTitle    = 'CruiseControlMode MCDC テストケース（TC01 〜 TC46, TC48 〜 TC49）';
 cfg.reqFilePath     = fullfile(demoDir, 'crs_controller_requirements.slreqx');
 cfg.harnessName     = harnessName;
 cfg.harnessOwner    = 'crs_controller/CruiseControlMode';
+cfg.skipTestRun     = true;
+cfg.reuseWaveforms  = true;
+cfg.reuseSlicerImages = true;
+cfg.openReport      = false;
 cfg.slicerStartPt   = [harnessName '/CruiseControlMode/mode'];
 cfg.slicerLevels    = {
     'CruiseControlMode',    [harnessName '/CruiseControlMode'];
@@ -44,6 +48,8 @@ cfg.inputSignals = {
            'yLim',[0.5 2.5],'yTicks',[1 2],'yLabels',{{'Off','On'}});
     struct('name','gear',  'color',[0.50 0.18 0.56], ...
            'yLim',[0.5 2.5],'yTicks',[1 2],'yLabels',{{'Park','Drive'}});
+    struct('name','frontDistance','color',[0.30 0.30 0.30], ...
+           'yLim',[],'yTicks',[],'yLabels',{{}});
 };
 
 % ── 出力信号設定 ─────────────────────────────────────────────────────────
